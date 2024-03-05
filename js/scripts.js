@@ -1,2 +1,2 @@
 alert('Hello World');
-let favoriteFood = 'pasta' ;
+let favoriteFood = 'pasta';
