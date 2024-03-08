@@ -28,5 +28,32 @@ var pokemonRepository = (function () {
         abilities: ['rain-dish', 'torrent']
       },
     ]
-    }
-);
+    return{
+      getAll:function(){
+        return repository;
+
+      },
+      add:function(pokemon) {
+
+        if(typeof pokemon ==='object ') {
+        
+        repository.push(pokemon);
+        
+        } else{
+        console.log('You must insert a valid Pokemon! ');
+        
+        }
+        
+        }
+        };
+        
+        })();
+        
+        var pokemons =pokemonRepository.getAll();
+        
+        for(var i= 0; i<pokemons.length; i++) {
+        
+        document.write('Name:'+pokemons[i].name +'<br>');
+        
+        document.write('Height:'+pokemons[i].height +'<br><br>');
+        }
