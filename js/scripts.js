@@ -1,59 +1,41 @@
-var pokemonRepository = (function () {
-    let repository = [
-      {
-        name: 'Pikachu',
-        height: 0.4,
-        type: 'electric',
-        abilities: ['static', 'lightningrod']
-      },
-  
-      {
-        name: 'Bulbasaur',
-        height: 0.7,
-        type: ['grass', 'poison'],
-        abilities: ['chlorophyll', 'over-grow']
-      },
-  
-      {
-        name: 'Charmander',
-        height: 0.6,
-        type: 'fire',
-        abilities: ['blaze', 'solar-power']
-      },
-  
-      {
-        name: 'Squirtle',
-        height: 0.5,
-        type: 'water',
-        abilities: ['rain-dish', 'torrent']
-      },
-    ]
-    return{
-      getAll:function(){
-        return repository;
+let pokemonList = [
+  {
+    name: 'Pikachu',
+    height: 0.4,
+    type: 'electric',
+    abilities: ['static', 'lightningrod']
+  },
 
-      },
-      add:function(pokemon) {
+  {
+    name: 'Bulbasaur',
+    height: 0.7,
+    type: ['grass', 'poison'],
+    abilities: ['chlorophyll', 'over-grow']
+  },
 
-        if(typeof pokemon ==='object ') {
-        
-        repository.push(pokemon);
-        
-        } else{
-        console.log('You must insert a valid Pokemon! ');
-        
-        }
-        
-        }
-        };
-        
-        })();
-        
-        var pokemons =pokemonRepository.getAll();
-        
-        for(var i= 0; i<pokemons.length; i++) {
-        
-        document.write('Name:'+pokemons[i].name +'<br>');
-        
-        document.write('Height:'+pokemons[i].height +'<br><br>');
-        }
+  {
+    name: 'Charmander',
+    height: 0.6,
+    type: 'fire',
+    abilities: ['blaze', 'solar-power']
+  },
+
+  {
+    name: 'Squirtle',
+    height: 0.5,
+    type: 'water',
+    abilities: ['rain-dish', 'torrent']
+  },
+]
+for (let i=0; i < pokemonList.length; i++){
+
+  var pokemonName = pokemonList[i].name
+  var pokemonHeight = pokemonList[i].height
+
+  let pokemonResult = `${pokemonName} ${pokemonHeight}`
+
+  if(pokemonHeight > 0.6){
+      pokemonResult = pokemonResult + " " +"Wow, that is big."
+  }
+  document.write(pokemonResult)
+}
