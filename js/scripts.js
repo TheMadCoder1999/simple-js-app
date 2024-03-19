@@ -27,6 +27,8 @@ let pokemonList = [
     abilities: ['rain-dish', 'torrent']
   },
 ]
+
+/*
 for (let i=0; i < pokemonList.length; i++){
 
   var pokemonName = pokemonList[i].name
@@ -39,3 +41,8 @@ for (let i=0; i < pokemonList.length; i++){
   }
   document.write(pokemonResult)
 }
+*/
+
+pokemonList.forEach(function(user){
+  document.write(user.name + " " + 'is' + " " + user.height + " ");
+});
