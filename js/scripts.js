@@ -1,3 +1,4 @@
+let pokemonRepository=(function () {
 let pokemonList = [
   {
     name: 'Pikachu',
@@ -28,6 +29,25 @@ let pokemonList = [
   },
 ]
 
+return {
+  add: function(pokemon){
+    pokemonList.push(pokemon);
+  },
+  getAll: function(){
+    return pokemonList;
+  }
+};
+})();
+
+console.log(pokemonRepository.getAll()); // []
+pokemonRepository.add({ name: 'Lopunny' });
+console.log(pokemonRepository.getAll()); // [ { name: 'Lopunny' } ]
+
+pokemonList.forEach(function(user){
+  document.write(pokemonRepository.getAll());
+});
+
+
 /*
 for (let i=0; i < pokemonList.length; i++){
 
@@ -43,6 +63,8 @@ for (let i=0; i < pokemonList.length; i++){
 }
 */
 
+/*
 pokemonList.forEach(function(user){
   document.write(user.name + " " + 'is' + " " + user.height + " ");
 });
+*/
