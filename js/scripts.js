@@ -53,11 +53,21 @@ let pokemonRepository = (function () {
   button.classList.add("button-class");
   listItem.appendChild(button);
   listContainer.appendChild(listItem);
-  }
+
+  button.addEventListener("click", function(event){
+    showDetails(pokemon);
+  })
+}
+function showDetails(pokemon) {
+  loadDetails(pokemon).then(function() {
+    showModal(pokemon);
+  });
+}
   return {
   add: add,
   getAll: getAll,
   addListItem: addListItem,
+  showDetails: showDetails
   };
   })();
   
