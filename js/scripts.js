@@ -45,6 +45,10 @@ let pokemonRepository = (function () {
   return pokemonList;
   }
   
+  function showDetails(pokemon) {
+    alert ('Pokedex Entry');
+  }
+
   function addListItem(pokemon) {
   let listContainer = document.querySelector(".pokemon-list"); // Changed variable name to avoid conflict
   let listItem = document.createElement("li");
@@ -58,16 +62,12 @@ let pokemonRepository = (function () {
     showDetails(pokemon);
   })
 }
-function showDetails(pokemon) {
-  loadDetails(pokemon).then(function() {
-    showModal(pokemon);
-  });
-}
+
   return {
-  add: add,
-  getAll: getAll,
-  addListItem: addListItem,
-  showDetails: showDetails
+  add,
+  getAll,
+  addListItem,
+  showDetails
   };
   })();
   
