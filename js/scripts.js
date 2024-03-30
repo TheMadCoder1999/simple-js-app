@@ -46,7 +46,9 @@ let pokemonRepository = (function () {
   }
   
   function showDetails(pokemon) {
-    alert ('Pokedex Entry');
+    alert (`Pokedex Entry 
+    Name: ${pokemon.name} 
+    Height: ${pokemon.height}`);
   }
 
   function addListItem(pokemon) {
