@@ -12,17 +12,16 @@ let pokemonRepository = (function () {
   console.log("pokemon is not correct");
   }
   }
-  
+
   function getAll() {
   return pokemonList;
   }
   
-  function showDetails(pokemon) {
-    alert (`Pokedex Entry 
-    Name: ${pokemon.name} 
-    Height: ${pokemon.height}`);
-
-  }
+//   function showDetails(pokemon) {
+//     alert (`Pokedex Entry 
+//     Name: ${pokemon.name} 
+//     Height: ${pokemon.height}`);
+//   }
 
   function addListItem(pokemon) {
   let listContainer = document.querySelector(".pokemon-list"); // Changed variable name to avoid conflict
@@ -37,16 +36,16 @@ let pokemonRepository = (function () {
   });
 }
 
-function loadList(){
+function loadList() {
   return fetch(apiUrl).then(function (response) {
     return response.json();
   }).then(function (json) {
     json.results.forEach(function (item) {
       let pokemon = {
         name: item.name,
-        detailsUrs: item.url
+        detailsUrl: item.url
       };
-      add (pokemon);
+      add(pokemon);
       console.log(pokemon);
     });
   }).catch(function (e) {
@@ -59,7 +58,7 @@ function loadDetails(item) {
   return fetch(url).then(function (response) {
     return response.json();
   }).then(function (details) {
-    // Now we add the details to the item
+    //Now we add details to the item
     item.imageUrl = details.sprites.front_default;
     item.height = details.height;
     item.types = details.types;
