@@ -1,7 +1,7 @@
 let pokemonRepository = (function () {
   let pokemonList = [];
   let apiUrl='https://pokeapi.co/api/v2/pokemon/?limit=20';
-  
+
   function add(pokemon) {
   if (
   typeof pokemon === "object" &&
@@ -16,7 +16,7 @@ let pokemonRepository = (function () {
   function getAll() {
   return pokemonList;
   }
-  
+
 //   function showDetails(pokemon) {
 //     alert (`Pokedex Entry 
 //     Name: ${pokemon.name} 
@@ -73,11 +73,31 @@ function loadDetails(item) {
 //   });
 // }
 
+
+
 function showDetails(item) {
-  pokemonRepository.loadDetails(item).then(function () {
-    console.log(item);
-  });
-}
+    pokemonRepository.loadDetails(item).then(function () {
+      let modal = document.createElement('div');
+      modal.classList.add('modal');
+      modal.innerHTML = `
+        <h2>${item.name}</h2>
+        <img src="${item.imageUrl}" alt="${item.name}" />
+        <p>Height: ${item.height}</p>
+        <p>Types: ${item.types.map(type => type.type.name).join(', ')}</p>
+      `;
+      
+      document.body.appendChild(modal);
+    });
+  }
+
+
+
+
+// function showDetails(item) {
+//   pokemonRepository.loadDetails(item).then(function () {
+//     console.log(item);
+//   });
+// }
 
   return {
   add,
@@ -89,13 +109,29 @@ function showDetails(item) {
   showDetails
   };
   })();
-  
+
   // pokemonRepository.add({ name: "Lopunny", height: 1.0, type: ["normal"] });
-  
+
   // console.log(pokemonRepository.getAll());
-  
+
   pokemonRepository.loadList().then(function () {
     pokemonRepository.getAll().forEach(function (pokemon) {
       pokemonRepository.addListItem(pokemon);
     });
   });
+
+
+  // function showDetails(item) {
+  //   pokemonRepository.loadDetails(item).then(function () {
+  //     let modal = document.createElement('div');
+  //     modal.classList.add('modal');
+  //     modal.innerHTML = `
+  //       <h2>${item.name}</h2>
+  //       <img src="${item.imageUrl}" alt="${item.name}" />
+  //       <p>Height: ${item.height}</p>
+  //       <p>Types: ${item.types.map(type => type.type.name).join(', ')}</p>
+  //     `;
+      
+  //     document.body.appendChild(modal);
+  //   });
+  // }
