@@ -33,7 +33,8 @@
     margin: 20% auto;
     padding: 20px;
     width:70%;
-    box-shadow: 0 59x 8px 0 rgba(0,0,0, 0.2), 0 7px 20px 0 rgba(0,0,0, 0.17) 
+    box-shadow: 0 5x 8px 0 rgba(0,0,0, 0.2), 
+        0 7px 20px 0 rgba(0,0,0, 0.17) 
 }
 
 .closeBtn{
@@ -42,7 +43,7 @@
     font-size: 30px;
 }
 
-/* .closeBtn: hover, .closeBtn: focus{
+/* .closeBtn:hover, .closeBtn:focus{
     color: #000;
     text-decoration: none;
     cursor: pointer;
