@@ -79,6 +79,7 @@ function showDetails(item) {
   pokemonRepository.loadDetails(item).then(function () {
     let modal = document.createElement('div');
     modal.classList.add('modal');
+    modal.classList.add('modal-content');
     modal.innerHTML = `
       <button class="closeBtn">X</button>
       <h2>${item.name}</h2>
