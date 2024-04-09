@@ -76,21 +76,32 @@ function loadDetails(item) {
 
 
 function showDetails(item) {
-    pokemonRepository.loadDetails(item).then(function () {
-      let modal = document.createElement('div');
-      modal.classList.add('modal');
-      modal.innerHTML = `
-        <h2>${item.name}</h2>
-        <img src="${item.imageUrl}" alt="${item.name}" />
-        <p>Height: ${item.height}</p>
-        <p>Types: ${item.types.map(type => type.type.name).join(', ')}</p>
-      `;
-      
-      document.body.appendChild(modal);
+  pokemonRepository.loadDetails(item).then(function () {
+    let modal = document.createElement('div');
+    modal.classList.add('modal');
+    modal.innerHTML = `
+      <button class="closeBtn">X</button>
+      <h2>${item.name}</h2>
+      <img src="${item.imageUrl}" alt="${item.name}" />
+      <p>Height: ${item.height}</p>
+      <p>Types: ${item.types.map(type => type.type.name).join(', ')}</p>
+    `;
+    modal.querySelector('.closeBtn').addEventListener('click', function() {
+      modal.remove();
     });
-  }
-
-
+    modal.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.remove();
+      }
+    });
+    document.body.appendChild(modal);
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        modal.remove();
+      }
+    });
+  });
+}
 
 
 // function showDetails(item) {
